@@ -2,6 +2,8 @@ name: Tailscale Proxy Runner
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 */4 * * *"  # Toutes les 4 heures, à l'heure pile
 
 jobs:
   connect-tailscale:
