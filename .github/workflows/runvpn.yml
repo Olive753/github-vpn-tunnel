@@ -6,16 +6,15 @@ on:
 jobs:
   connect-tailscale:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Install Tailscale
-      run: |
-        curl -fsSL https://tailscale.com/install.sh | sh
-        sudo tailscale up --authkey=${{ secrets.TAILSCALE_AUTHKEY }} --hostname=github-runner
+      - name: Install Tailscale
+        run: |
+          curl -fsSL https://tailscale.com/install.sh | sh
+          sudo tailscale up \
+            --authkey=${{ secrets.TAILSCALE_AUTHKEY }} \
+            --hostname=github-runner \
+            --advertise-exit-node \
+            --accept-routes
 
-    - name: Run local SOCKS proxy (via SSH)
-      run: |
-        sudo apt install -y openssh-client
-        nohup ssh -D 1080 -q -C -N localhost &
-        echo "SOCKS5 proxy running on port 1080"
-        sleep 3600  # Garde le runner actif pendant 1h
+      - name: Keep the runner alive
+        run: sleep 6h
