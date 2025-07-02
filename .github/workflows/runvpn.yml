@@ -17,7 +17,6 @@ jobs:
             --hostname=github-runner \
             --advertise-exit-node \
             --accept-routes \
-            --reset \
             --login-server=https://login.tailscale.com
 
       - name: Keep the runner alive
