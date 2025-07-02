@@ -56,4 +56,4 @@ Ce dépôt vous permet de créer un tunnel VPN temporaire vers un GitHub runner 
 - Vous naviguez sur Internet avec l’IP d’un GitHub runner distant (USA ou Europe)
 - Aucun VPS, aucune carte bancaire, 100% gratuit
 
-⚠️ Le tunnel s'arrête après 60 minutes (limite GitHub Actions)
+⚠️ Le tunnel s'arrête après 6h (limite GitHub Actions)
