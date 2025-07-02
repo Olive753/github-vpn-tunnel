@@ -16,7 +16,8 @@ jobs:
             --authkey=${{ secrets.TAILSCALE_AUTHKEY }} \
             --hostname=github-runner \
             --advertise-exit-node \
-            --accept-routes
+            --accept-routes \
+            --reset
 
       - name: Keep the runner alive
         run: sleep 6h
